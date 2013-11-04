@@ -75,3 +75,4 @@ pickle-email-*.html
 **.swp
 
 Gemfile.lock
+config/mongoid.yml
