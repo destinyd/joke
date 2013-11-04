@@ -1,0 +1,23 @@
+<h1>Listing jokes</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Text</th>
+    <th>Imgurl</th>
+    <th>Videourl</th>
+  </tr>
+
+<% @jokes.each do |joke| %>
+  <tr>
+    <td><%= joke.name %></td>
+    <td><%= joke.text %></td>
+    <td><%= joke.imgurl %></td>
+    <td><%= joke.videourl %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="pull-right">
+  <%= paginate @jokes %>
+</div>
