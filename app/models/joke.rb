@@ -10,4 +10,5 @@ class Joke
   #field :comment, type: Integer
   field :videourl, type: String
   validates :joke_id, presence: true, uniqueness: true
+  scope :recent, desc(:created_at)
 end
