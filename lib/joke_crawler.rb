@@ -37,13 +37,8 @@ class JokeCrawler
   def get_all
     n = Nokogiri::XML(open(url).read.gsub(regex_wrap,''))
     @timestamp = n.xpath('//timestamp').text.gsub(/ /, '+')
-    if n.xpath('//dataend').text == '0'
-      n.xpath('//joke').each do |joke|
-        Joke.create joke_id: joke.xpath('id').text, name: joke.xpath('name').text, text: joke.xpath('text').text, imgurl: joke.xpath('imgurl').text, videourl: joke.xpath('videourl').text, forward: joke.xpath('forward').text
-      end
-    end
 
-    (1..522).each do |index|
+    (0..522).to_a.reverse.each do |index|
       get(url(index,@timestamp))
     end
   end
