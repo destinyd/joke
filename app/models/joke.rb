@@ -1,5 +1,6 @@
 class Joke
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :joke_id, type: Integer
   field :name, type: String
   #field :time, type: String
