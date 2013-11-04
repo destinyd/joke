@@ -10,6 +10,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'mongoid'
 gem 'simple_form'
+gem 'kaminari'
+gem 'nokogiri'
+gem 'rufus-scheduler'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -21,6 +24,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'debugger'
 end
 group :development, :test do
   gem 'factory_girl_rails'
