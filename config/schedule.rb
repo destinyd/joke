@@ -19,8 +19,7 @@
 set :output, { error: 'error.log', standard: 'cron.log' }
 set :environment, "development"
 
-every 1.hours do
+every 30.minutes do
   runner "JokeCrawler.new({all:false}).run"
-  #rake "crawler:all"
+  runner "QingsongCrawler.new.run"
 end
-
