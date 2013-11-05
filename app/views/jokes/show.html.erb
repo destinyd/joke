@@ -22,6 +22,15 @@
       <div class="clearfix"></div>
       <%= render "layouts/share", plus: '' %>
     </div>
+    <div class="clearfix"></div>
+    <ul class="pager">
+      <li class="previous">
+        <%= link_to "&larr;".html_safe + @joke.older.name, @joke if @joke.older %>
+      </li>
+      <li class="next">
+        <%= link_to (@joke.newer.name + "&rarr;").html_safe, @joke if @joke.newer %>
+      </li>
+    </ul>
   </div>
   <div class="panel-footer">
     <!--

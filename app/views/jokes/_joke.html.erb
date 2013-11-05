@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= joke.name %>
+    <%= link_to joke.name, joke %>
   </div>
   <div class="panel-body">
     <% if !joke.imgurl.blank? and joke.imgurl != '0' %>
