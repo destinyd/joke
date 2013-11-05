@@ -14,6 +14,7 @@ gem 'kaminari'
 gem 'nokogiri'
 gem 'rufus-scheduler'
 gem 'inherited_resources'
+gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
