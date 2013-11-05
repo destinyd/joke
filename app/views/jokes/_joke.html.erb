@@ -3,7 +3,7 @@
     <%= joke.name %>
   </div>
   <div class="panel-body">
-    <% unless joke.imgurl.blank? %>
+    <% if !joke.imgurl.blank? and joke.imgurl != '0' %>
       <p class="text-center">
         <%= image_tag joke.imgurl %>
       </p>
