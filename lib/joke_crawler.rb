@@ -25,7 +25,7 @@ class JokeCrawler
     n = Nokogiri::XML(open(url).read.gsub(regex_wrap,''))
     if n.xpath('//dataend').text == '0'
       n.xpath('//joke').each do |joke|
-        Joke.create joke_id: joke.xpath('id').text, name: joke.xpath('name').text, text: joke.xpath('text').text, imgurl: joke.xpath('imgurl').text, videourl: joke.xpath('videourl').text, forward: joke.xpath('forward').text
+        Joke.create joke_id: joke.xpath('id').text, name: joke.xpath('name').text, text: joke.xpath('text').text, imgurl: joke.xpath('imgurl').text, videourl: joke.xpath('videourl').text, forward: joke.xpath('forward').text, tag_list: "短篇,#{[nil,'','0'].include?(joke.xpath('imgurl').text) ? '无图' : '有图'}"
       end
     end
   end
