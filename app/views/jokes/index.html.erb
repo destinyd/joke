@@ -5,4 +5,9 @@
 <div class="pull-right">
   <%= paginate @jokes %>
 </div>
+<div class="clearfix"></div>
+<ul class="pager">
+<li class="previous"><%= link_to_previous_page @jokes, '上一页' %></li>
+<li class="next"><%= link_to_next_page @jokes, '下一页' %></li>
+</ul>
 
