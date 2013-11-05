@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="col-md-12">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% @longs.each do |long| %>
+      <div class="col-md-4">
+        <h3>
+          <%= link_to long.name, long %>
+        </h3>
+        <p> <%= strip_tags(long.text).block(200) %> </p>
+        <div class="meta pull-right">
+          <small>
+            <time><%= long.created_at.cc_time %></time>
+          </small>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    <% end -%>
+  </div>
+</div>
+</div>
+<div class="col-md-8">
+  <%= render "jokes/jokes", jokes: @shorts %>
+</div>
+<div class="col-md-4">
+  <%= render "layouts/sidebar" %>
+</div>
