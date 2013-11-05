@@ -11,6 +11,12 @@
     <p> <%= joke.tags.include?('长篇') ? joke.text.html_safe : joke.text %> </p>
   </div>
   <div class="panel-footer">
+    <div class="share pull-left">
+      <%= render "layouts/share", plus: " data=\"{'url':'#{joke_url(joke)}'}\"" %>
+    </div>
+    <!-- <div class="pinglun">
+        <%= link_to '评论', joke %>
+      </div> -->
     <div class="pull-right"><%= joke.created_at %></div>
     <div class="clearfix"></div>
   </div>

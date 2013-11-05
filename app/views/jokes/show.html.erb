@@ -1,25 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @joke.name %>
-</p>
-
-<p>
-  <b>Text:</b>
-  <%= @joke.text %>
-</p>
-
-<p>
-  <b>Imgurl:</b>
-  <%= @joke.imgurl %>
-</p>
-
-<p>
-  <b>Videourl:</b>
-  <%= @joke.videourl %>
-</p>
-
-
-<%= link_to 'Edit', edit_joke_path(@joke) %> |
-<%= link_to 'Back', jokes_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>
+      <%= @joke.name %>
+    </h1>
+  </div>
+  <div class="panel-body">
+    <% if !@joke.imgurl.blank? and @joke.imgurl != '0' %>
+      <p class="text-center">
+        <%= image_tag @joke.imgurl %>
+      </p>
+    <% end -%>
+    <p class="text">
+      <%= @joke.tags.include?('长篇') ? @joke.text.html_safe : @joke.text %>
+    </p>
+    <p> &nbsp; </p>
+    <p> &nbsp; </p>
+    <div class="pull-right">
+      <div class="pull-right">
+        <%= render "layouts/like" %>
+      </div>
+      <div class="clearfix"></div>
+      <%= render "layouts/share", plus: '' %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <!--
+    <div class="pinglun">
+      评论
+    </div>
+    -->
+    <div class="pull-right timestamp"><%= @joke.created_at %></div>
+    <div class="clearfix"></div>
+  </div>
+</div>
