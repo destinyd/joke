@@ -2,7 +2,7 @@ class Joke
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::TaggableOn
-  field :joke_id, type: Integer
+  field :joke_id, type: String
   field :name, type: String
   #field :time, type: String
   field :text, type: String
