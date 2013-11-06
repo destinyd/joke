@@ -19,3 +19,11 @@ p.text{
   margin-top: 20px;
   text-indent: 2em;
 }
+.short_recent{
+  .table{
+    margin-bottom: 0px;
+    td{
+      padding: 8px 15px;
+    }
+  }
+}
