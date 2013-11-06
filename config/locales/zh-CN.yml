@@ -306,9 +306,9 @@ zh-CN:
     pending: 待审
     s1: '+1'
     s-1: '睬'
-  site_title: 笑你弟弟
-  site_desc: '笑你弟弟：最新、最全笑料收录，精选笑料集合，给你一站式休闲平台，让您看的开心，看得省事。'
-  site_keywords: '笑你弟弟,笑料,吐槽'
+  site_title: 笑料百出
+  site_desc: '最新、最全笑料的收录，搞笑笑话、搞笑图片、搞笑文章集合，给你一站式休闲平台，让您看的开心，看得省事。'
+  site_keywords: '笑料百出,笑料,吐槽'
 
   controller:
     groups: 商品分组
