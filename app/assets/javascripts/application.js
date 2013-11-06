@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require jquery.lazyload.min
+// require_tree .
 var duoshuoQuery = {short_name:"ddjoke"};
 $(function() {
   $("img.lazy").lazyload();
