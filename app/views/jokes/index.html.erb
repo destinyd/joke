@@ -1,2 +1,9 @@
-<h1>最新笑料</h1>
+<% 
+  @seo_title = "最新笑料列表第#{params[:page] || 1}页"
+  set_meta_tags({
+    title: @seo_title,
+    description: "#{@seo_title}_#{t('site_title')}",
+  })
+%>
+<h1><%= @seo_title %></h1>
 <%= render "jokes/jokes", jokes: @jokes %>
