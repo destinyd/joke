@@ -12,4 +12,8 @@ module ApplicationHelper
       reverse: true
     }
   end
+
+  def ad(ad_type)
+    Ad.send(ad_type).try(:content).try(:html_safe)
+  end
 end

@@ -30,6 +30,7 @@
       <%= render "layouts/share", plus: '' %>
     </div>
     <div class="clearfix"></div>
+    <%= ad(:content_mid) %>
     <ul class="pager">
       <li class="previous">
         <%= link_to "&larr;".html_safe + @joke.older.name, @joke if @joke.older %>
@@ -38,6 +39,7 @@
         <%= link_to (@joke.newer.name + "&rarr;").html_safe, @joke if @joke.newer %>
       </li>
     </ul>
+    <%= ad(:content_bottom) %>
   </div>
   <div class="panel-footer">
     <!--

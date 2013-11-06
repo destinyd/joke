@@ -1,12 +1,13 @@
 <% title t('site_desc') %>
+<%= ad(:home_top) %>
 <div class="col-md-12">
 <div class="panel panel-default">
   <div class="panel-body">
     <% @longs.each do |long| %>
       <div class="col-md-4">
-        <h3>
+        <h4>
           <%= link_to long.name, long %>
-        </h3>
+        </h4>
         <p> <%= strip_tags(long.text).block(200) %> </p>
         <div class="meta pull-right">
           <small>
@@ -20,6 +21,7 @@
   </div>
 </div>
 </div>
+<%= ad(:home_mid) %>
 <div class="col-md-8">
   <%= render @shorts %>
 
