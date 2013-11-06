@@ -5,4 +5,6 @@ Ddjoke::Application.routes.draw do
   get 'image(-p:page)' => 'jokes#image', as: :image, defaults: {page: 1}
   resources :jokes
   root :to => "home#index"
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end

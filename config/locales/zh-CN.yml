@@ -198,6 +198,7 @@ zh-CN:
       wine_monitor: 酒价监视器
       website: 网站
       joke: 笑料
+      admin_user: 管理员
     attributes:
       wine:
         min_price: 历史最低价
