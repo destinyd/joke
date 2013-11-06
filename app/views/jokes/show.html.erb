@@ -1,3 +1,10 @@
+<% 
+  set_meta_tags({
+    title: @joke.title,
+    description: "#{@joke.description}_#{t('site_title')}",
+    keywords: @joke.tags.push(t('site_keywords')).join(',')
+  })
+%>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h1>

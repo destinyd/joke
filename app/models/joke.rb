@@ -30,4 +30,24 @@ class Joke
   def newer
     @newer ||= Joke.newer_by(self).first
   end
+
+  def is_long?
+    tags.include? '长篇'
+  end
+
+  def is_short?
+    tags.include? '短篇'
+  end
+
+  def title
+    @title ||= is_short? ? strip_for_title : name
+  end
+
+  def strip_for_title
+    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block(30)}_#{name}无节操吐槽"
+  end
+
+  def description
+    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block}_#{name}无节操吐槽"
+  end
 end
