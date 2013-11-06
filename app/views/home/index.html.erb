@@ -20,7 +20,11 @@
 </div>
 </div>
 <div class="col-md-8">
-  <%= render "jokes/jokes", jokes: @shorts %>
+  <%= render @shorts %>
+
+  <div class="pull-right">
+    <%= paginate @shorts, :params => {:controller => 'jokes', :action => 'short'} %>
+  </div>
 </div>
 <div class="col-md-4">
   <%= render "layouts/sidebar" %>
