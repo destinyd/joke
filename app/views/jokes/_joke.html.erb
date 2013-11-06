@@ -8,7 +8,7 @@
         <%= image_tag joke.imgurl %>
       </p>
     <% end -%>
-    <p> <%= joke.tags.include?('长篇') ? joke.text.html_safe : joke.text %> </p>
+    <p> <%= joke.tags.include?('长篇') ? link_to(strip_tags(joke.text).block(300), joke) : joke.text %> </p>
   </div>
   <div class="panel-footer">
     <div class="share pull-left">
