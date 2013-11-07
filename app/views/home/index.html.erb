@@ -5,7 +5,10 @@
 <div class="col-md-12">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= link_to '最新长篇笑料', long_path %>
+    <span class="pull-right">
+      <%= link_to '更多', long_path %>
+    </span>
+    最新长篇笑料
   </div>
   <div class="panel-body">
     <% @longs.each do |long| %>
