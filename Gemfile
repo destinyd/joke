@@ -20,6 +20,8 @@ gem 'mongoid_taggable_on'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'activeadmin-mongoid'
 gem "crummy", "~> 1.7.1"
+# sitemap
+gem 'sitemap_generator'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
