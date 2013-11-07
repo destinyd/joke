@@ -19,6 +19,7 @@ gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap'
 gem 'mongoid_taggable_on'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'activeadmin-mongoid'
+gem "crummy", "~> 1.7.1"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
