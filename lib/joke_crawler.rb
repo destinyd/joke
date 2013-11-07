@@ -17,8 +17,8 @@ class JokeCrawler
     @default_params ||= {all: false}
   end
 
-  def url(page=0,timestamp=0)
-    "http://joke.zaijiawan.com/Joke/joke2.jsp?appname=readingxiaonimei&os=android&hardware=android&version=1.6&sort=2&timestamp=#{timestamp}&page=#{page}"
+  def url(page=0,timestamp=0,sort=1)
+    "http://joke.zaijiawan.com/Joke/joke2.jsp?appname=readingxiaonimei&os=android&hardware=android&version=1.6&sort=#{sort}&timestamp=#{timestamp}&page=#{page}"
   end
 
   def get(url)
@@ -32,6 +32,7 @@ class JokeCrawler
 
   def get_recent
     get(url)
+    get(url,0,0)
   end
 
   def get_all
