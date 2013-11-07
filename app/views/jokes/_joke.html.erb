@@ -12,7 +12,7 @@
       <% if joke.is_long? %>
         <%= strip_tags(joke.text).block(300) %> [<%= link_to '查看全文', joke %>]
       <% else %>
-        <%= joke.text %>
+        <%= joke.text.html_safe %>
       <% end -%>
     </p>
   </div>
