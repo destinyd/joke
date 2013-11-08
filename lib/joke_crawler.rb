@@ -31,8 +31,8 @@ class JokeCrawler
   end
 
   def get_recent
+    get(url(0,0,0))
     get(url)
-    get(url,0,0)
   end
 
   def get_all
