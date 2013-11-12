@@ -17,6 +17,7 @@ class Joke
   scope :short, where(:tags.in => ['短篇'])
   scope :long, where(:tags.in => ['长篇'])
   scope :image, where(:tags.in => ['有图'])
+  scope :video, not_in(videourl: ['', nil])
 
   scope :newer_by, lambda{|joke| where(:created_at.gt => joke.created_at).older}
   scope :older_by, lambda{|joke| where(:created_at.lt => joke.created_at).recent}
@@ -37,6 +38,18 @@ class Joke
 
   def is_short?
     tags.include? '短篇'
+  end
+
+  def is_video?
+    !videourl.blank? and videourl != '0'
+  end
+
+  def is_image?
+    !imgurl.blank? and imgurl != '0'
+  end
+
+  def to_youku_player_url
+    videourl.gsub /.*id_([^\.]+).html.*/, 'http://player.youku.com/player.php/sid/\1/v.swf'
   end
 
   def title

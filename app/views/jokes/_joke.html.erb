@@ -3,12 +3,16 @@
     <%= link_to joke.name, joke %>
   </div>
   <div class="panel-body">
-    <% if !joke.imgurl.blank? and joke.imgurl != '0' %>
+    <% if joke.is_video? %>
+      <p class="text-center">
+        <embed src="<%= joke.to_youku_player_url %>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+      </p>
+    <% elsif joke.is_image? %>
       <p class="text-center">
         <%= image_tag joke.imgurl %>
       </p>
     <% end -%>
-    <p> 
+    <p>
       <% if joke.is_long? %>
         <%= strip_tags(joke.text).block(300) %> [<%= link_to '查看全文', joke %>]
       <% else %>

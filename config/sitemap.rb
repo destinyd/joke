@@ -7,6 +7,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   add image_path, :changefreq => 'daily', :priority => 0.9
+  add video_path, :changefreq => 'daily', :priority => 0.9
   add long_path, :changefreq => 'daily', :priority => 0.8
   add short_path, :changefreq => 'daily', :priority => 0.8
 end

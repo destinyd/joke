@@ -9,5 +9,8 @@
     <%= content_tag 'li',class: action_name == 'image' ? 'active' : '' do -%>
       <%= link_to '有图有真相', image_path %>
     <% end -%>
+    <%= content_tag 'li',class: action_name == 'video' ? 'active' : '' do -%>
+      <%= link_to '视频笑料', video_path %>
+    <% end -%>
   </ul>
 </div>

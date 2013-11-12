@@ -20,6 +20,10 @@ class JokesController < InheritedResources::Base
     @jokes = Joke.image.recent.page(params[:page])
   end
 
+  def video
+    @jokes = Joke.video.recent.page(params[:page])
+  end
+
   protected
   def collection
     @jokes ||= end_of_association_chain.recent.page(params[:page])
