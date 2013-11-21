@@ -1,6 +1,8 @@
 class JokesController < InheritedResources::Base
   before_filter :crummy_all
   before_filter :crummy_other, except: [:index, :show]
+  respond_to :html, :json
+  actions :index, :show
 
   def show
     show! do 
@@ -10,18 +12,22 @@ class JokesController < InheritedResources::Base
 
   def long
     @jokes = Joke.long.recent.page(params[:page])
+    respond_with(@jokes)
   end
 
   def short
     @jokes = Joke.short.recent.page(params[:page])
+    respond_with(@jokes)
   end
 
   def image
     @jokes = Joke.image.recent.page(params[:page])
+    respond_with(@jokes)
   end
 
   def video
     @jokes = Joke.video.recent.page(params[:page])
+    respond_with(@jokes)
   end
 
   protected
