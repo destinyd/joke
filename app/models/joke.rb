@@ -8,7 +8,7 @@ class Joke
   #field :time, type: String
   field :text, type: String
   field :imgurl, type: String
-  field :forward, type: Integer
+  field :forward, type: Integer, default: 0
   #field :comment, type: Integer
   field :videourl, type: String
   validates :joke_id, presence: true, uniqueness: true
@@ -62,5 +62,9 @@ class Joke
 
   def description
     "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block}_#{name}无节操吐槽"
+  end
+
+  def visit!
+    Joke.update_counters _id, forward: 1
   end
 end

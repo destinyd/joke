@@ -7,6 +7,7 @@ class JokesController < InheritedResources::Base
   def show
     show! do 
       crummy_show
+      @joke.visit!
     end
   end
 
