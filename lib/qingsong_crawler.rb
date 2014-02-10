@@ -6,7 +6,14 @@ class QingsongCrawler
   end
 
   def run
-    get_recent
+    @n = 0
+    begin
+      get_recent
+    rescue Net::ReadTimeout => ex
+      p 'QingsongCrawler get rss timeout'
+      @n += 1
+      retry if @n < 3
+    end
   end
 
   def rss_url
@@ -14,7 +21,7 @@ class QingsongCrawler
   end
 
   def get_cotent(url)
-      open(url).read.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').match(regex_wrap)['content']
+    text = open(url).read.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub("<ins style=\"display: inline-block; width: 468px; height: 60px;\" data-ad-client=\"ca-pub-3993109294259395\" data-ad-slot=\"9228735268\" class=\"adsbygoogle\"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});\n</script>",'').match(regex_wrap)['content']
   end
 
   def get_rss
@@ -45,15 +52,15 @@ class QingsongCrawler
   end
 
   def regex_wrap
-    @regex_wrap ||= /<div class="news-content.*?">(?<content>.*?)<\/div><br><script>var cpro_id/m
+    @regex_wrap ||= /<div class="news-content.*?">(?<content>.*?)<\/div><div class="gbads center"><script>var cpro_id/m
   end
 
   def regex_need_url
-    @regex_need_url ||= /news-(?:\d+$|tucao.*|FUN\d+)/
+    @regex_need_url ||= /news-(?:\d+$|tucao.*|FUN\d+|jiongget.*|jiecao\d+|yijiongt.*)/
   end
 
   def regex_qingsong_name
-    @regex_qingsong_name ||= /轻松一刻/
+    @regex_qingsong_name ||= /轻松一刻|内涵图|一囧|囧哥|吐槽/
   end
 
   def regex_short_url
