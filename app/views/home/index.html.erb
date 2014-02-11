@@ -34,7 +34,7 @@
 </div>
 <div class="col-md-8">
   <%= render @shorts %>
-  <%= render "layouts/share_v2" %>
+  <%= render "layouts/share_v2", jokes: @short %>
 
   <div class="pull-right">
     <%= paginate @shorts, :params => {:controller => 'jokes', :action => 'short'} %>

@@ -3,7 +3,7 @@
     {"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,
     "bdStyle":"0","bdSize":"16"},
     "share":[
-      <% @jokes.each do |joke| %>
+      <% jokes.each do |joke| %>
       {
         "tag" : "share_<%= joke._id  %>",
         "bdText": "<%= joke.share_text %>",
