@@ -61,7 +61,7 @@ class Joke
   end
 
   def description
-    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block}_#{name}无节操吐槽"
+    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ 　\n]/,'').block}_#{name}无节操吐槽"
   end
 
   def share_text
