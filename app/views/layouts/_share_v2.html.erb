@@ -10,7 +10,7 @@
         "bdPic":"<%= joke.imgurl %>",
         "bdUrl" : "<%= joke_url(joke) %>",
       },
-      <% end -%>
+      <% end unless jokes.blank? -%>
     ],
     "image":{"viewList":["tsina","qzone","tqq","weixin"],"viewText":"分享到：","viewSize":"16"},
     "selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","qzone","tqq","weixin"]},
