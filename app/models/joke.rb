@@ -64,6 +64,10 @@ class Joke
     "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block}_#{name}无节操吐槽"
   end
 
+  def share_text
+    description + " #笑料百出# http://joke.realityandapp.com"
+  end
+
   def visit!
     Joke.update_counters _id, forward: 1
   end
