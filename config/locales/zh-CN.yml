@@ -310,6 +310,10 @@ zh-CN:
   site_title: 笑料百出
   site_desc: '最新、最全笑料的收录，搞笑笑话、搞笑图片、搞笑文章集合，给你一站式休闲平台，让您看的开心，看得省事。'
   site_keywords: '笑料百出,笑料,吐槽'
+  download:
+    title: 笑料百出应用下载
+    desc: 笑料百出应用下载,笑料百出安卓最新版本下载
+    keywords: 安卓,下载,笑料百出,笑料,吐槽
 
   controller:
     groups: 商品分组

@@ -22,6 +22,7 @@ gem 'activeadmin-mongoid'
 gem "crummy", "~> 1.7.1"
 # sitemap
 gem 'sitemap_generator'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

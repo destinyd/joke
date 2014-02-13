@@ -1,0 +1,29 @@
+<% 
+  set_meta_tags({
+    description: t('download.desc'),
+    keywords:  t('download.keywords')
+  })
+%>
+<h1><%= title t('download.title') %></h1>	
+<!-- DOWNLOAD PAGE -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div id="应用下载" class="page">
+      <p>版本：<%= @apk.version %> 
+        <%#大小：3.3MB%>
+      </p>
+      <p>发布日期：<%= @apk.created_at %></p>
+      <p>系统要求：Android 2.2或更高版本</p>
+      <p>更新内容：
+        <p>
+          <%= @apk.update_info.html_safe %> 
+        </p>
+      </p>
+      <p>
+        <%= link_to @apk.apk.url do %>
+          <%= image_tag 'button.png',alt:'下载笑料百出安卓最新版',title:'下载笑料百出安卓最新版' %>
+        <% end -%>
+      </p>
+    </div>
+  </div>
+</div>
