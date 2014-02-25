@@ -65,7 +65,7 @@ class Joke
   end
 
   def share_text
-    description + " #笑料百出# http://joke.realityandapp.com"
+    description + " #笑料百出# "
   end
 
   def visit!
