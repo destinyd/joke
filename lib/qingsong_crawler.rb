@@ -21,7 +21,7 @@ class QingsongCrawler
   end
 
   def get_cotent(url)
-    text = open(url).read.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub("<ins style=\"display: inline-block; width: 468px; height: 60px;\" data-ad-client=\"ca-pub-3993109294259395\" data-ad-slot=\"9228735268\" class=\"adsbygoogle\"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});\n</script>",'').match(regex_wrap)['content']
+    text = open(url).read.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub(/<ins[^>]+><\/ins>|<script>[^<]+<\/script>/mi,'').gsub(/17qingsong-23/, 'liuzhouyeshi-23').match(regex_wrap)['content']
   end
 
   def get_rss
