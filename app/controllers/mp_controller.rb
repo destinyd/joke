@@ -11,7 +11,7 @@ class MpController < ApplicationController
     if params[:xml][:MsgType] == 'event'
       case params[:xml][:Event]
       when 'CLICK'
-        @jokes = Joke.recent.page.per(5)
+        @jokes = Joke.recent.page.per(5).not_in(id: YixinRead.get_user(params[:xml][:FromUserName]).joke_ids)
         if %w(image video long).include?(params[:xml][:EventKey])
           @jokes = @jokes.send(params[:xml][:EventKey])
         end
