@@ -1,7 +1,7 @@
 require 'rufus/scheduler'
 
 scheduler = Rufus::Scheduler.new
-scheduler.every "1h", :first_at => Time.now + 60 do
+scheduler.every "1h", :first_at => Time.now + 600 do
   JokeCrawler.new({all:false}).run
   QingsongCrawler.new.run
 end
