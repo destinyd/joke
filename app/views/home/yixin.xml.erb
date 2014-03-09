@@ -1,0 +1,12 @@
+<MsgType><![CDATA[news]]></MsgType>
+<ArticleCount><%= @jokes.count %></ArticleCount>
+<Articles>
+  <% @jokes.each do |joke| %>
+    <item>
+      <Title><![CDATA[<%= joke.title %>]]></Title> 
+      <Description><![CDATA[<%= joke.description %>]]></Description>
+      <PicUrl><![CDATA[<%= joke.imgurl if joke.is_image? %>]]></PicUrl>
+      <Url><![CDATA[<%= joke_url(joke) %>]]></Url>
+    </item>
+<% end %>
+</Articles>

@@ -1,4 +1,5 @@
 Ddjoke::Application.routes.draw do
+  match 'yixin' => 'home#yixin'
   get 'download' => "home#download", as: :download
   get 'jokes(-p:page)' => 'jokes#index', as: :jokes, defaults: {page: 1}
   get 'short(-p:page)' => 'jokes#short', as: :short, defaults: {page: 1}
