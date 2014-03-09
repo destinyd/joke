@@ -15,6 +15,7 @@ class MpController < ApplicationController
         if %w(image video long).include?(params[:xml][:EventKey])
           @jokes = @jokes.send(params[:xml][:EventKey])
         end
+        YixinRead.read(params[:xml][:FromUserName], @jokes.map(&:id))
       else
         render :welcome
       end
