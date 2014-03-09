@@ -1,0 +1,2 @@
+Joke.all.update_all tags: ['短篇','无图']
+Joke.not_in(imgurl: [nil,'','0']).update_all tags: ['短篇','有图']

@@ -1,0 +1,11 @@
+"zh-CN":
+  formtastic:
+    yes: 是
+    no: 否
+    create: "新建%{model}"
+    edit: "编辑%{model}"
+    update: "编辑%{model}"
+    cancel: "取消%{model}"
+    reset: "重置%{model}"
+    submit: "提交%{model}"
+    require: 必填

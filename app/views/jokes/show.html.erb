@@ -1,0 +1,66 @@
+<% 
+  set_meta_tags({
+    title: @joke.title,
+    description: "#{@joke.description}_#{t('site_title')}",
+    keywords: @joke.tags.push(t('site_keywords')).join(',')
+  })
+%>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>
+      <%= @joke.name %>
+    </h1>
+  </div>
+  <div class="panel-body">
+    <% if @joke.is_video? %>
+      <p class="text-center">
+        <embed src="<%= @joke.to_youku_player_url %>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+      </p>
+    <% elsif @joke.is_image? %>
+      <p class="text-center">
+        <%= image_tag @joke.imgurl %>
+      </p>
+    <% end -%>
+    <p class="text">
+      <%= @joke.text.html_safe %>
+    </p>
+    <p> &nbsp; </p>
+    <p> &nbsp; </p>
+    <div class="pull-left">
+      <%= ad(:content_left) %>
+    </div>
+    <div class="pull-right">
+      <div class="pull-right">
+        <%= render "layouts/like" %>
+      </div>
+      <div class="clearfix"></div>
+      <%= render "layouts/bigshare", joke: @joke %>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-center">
+      <%= ad(:content_mid) %>
+    </div>
+    <ul class="pager">
+      <li class="previous">
+        <%= link_to "&larr;".html_safe + @joke.older.name, @joke.older if @joke.older %>
+      </li>
+      <li class="next">
+        <%= link_to (@joke.newer.name + "&rarr;").html_safe, @joke.newer if @joke.newer %>
+      </li>
+    </ul>
+    <div class="text-center">
+      <%= ad(:content_bottom) %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <!--
+    <div class="pinglun">
+      评论
+    </div>
+    -->
+    <div class="pull-right timestamp"><%= @joke.created_at %></div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<%= render "layouts/comments" %>

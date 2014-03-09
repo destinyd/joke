@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    最新短篇
+  </div>
+  <div class="short_recent">
+    <table class="table table-hover">
+      <% Joke.short.recent.page.each do |short| %>
+        <tr><td>
+            <%= link_to short.text.block(16), short %>
+        </td></tr>
+      <% end -%>
+    </table>
+  </div>
+</div>

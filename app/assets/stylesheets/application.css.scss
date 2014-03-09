@@ -8,17 +8,58 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap_and_overrides
+ *= require jokes
  *= require_self
- *= require_tree .
+ * require_tree .
  */
-.content {
-  background-color: #eee;
-  padding: 20px;
-  margin: 0 -20px;
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+#footer{
+  font: 12px/1.5 Tahoma,Arial,"宋体b8b\4f53",sans-serif;
+  color: #999;
+  /*text-align: center;*/
+  margin-top: 20px;
+
+  li{
+    list-style: none;
+  }
+  .footer-container{
+    /*text-align: center;*/
+    padding-top: 20px;
+  }
+  .weixin_mp{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Footer
+-------------------------------------------------- */
+
+.footer {
+  /*text-align: center;*/
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #252525;
+  width: 100%;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+/*baidu share wixin share*/
+#bdshare_weixin_qrcode_dialog table{width: 205px;}
+.col-md-8 img{
+  max-width: 580px;
 }

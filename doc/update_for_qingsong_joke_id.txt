@@ -1,0 +1,3 @@
+Joke.all.each do |joke|
+  joke.update_attribute :joke_id, joke.joke_id.to_s
+end

@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to joke.name, joke %>
+  </div>
+  <div class="panel-body">
+    <% if joke.is_video? %>
+      <p class="text-center">
+        <embed src="<%= joke.to_youku_player_url %>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+      </p>
+    <% elsif joke.is_image? %>
+      <p class="text-center">
+        <%= image_tag joke.imgurl %>
+      </p>
+    <% end -%>
+    <p>
+      <% if joke.is_long? %>
+        <%= strip_tags(joke.text).block(300) %> [<%= link_to '查看全文', joke %>]
+      <% else %>
+        <%= joke.text.html_safe %>
+      <% end -%>
+    </p>
+  </div>
+  <div class="panel-footer">
+    <div class="share pull-left">
+      <%= render "layouts/share", joke: joke %>
+    </div>
+    <!-- <div class="pinglun">
+        <%= link_to '评论', joke %>
+      </div> -->
+    <div class="pull-right"><%= joke.created_at %></div>
+    <div class="clearfix"></div>
+  </div>
+</div>

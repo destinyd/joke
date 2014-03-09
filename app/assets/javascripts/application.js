@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require jquery.lazyload.min
+// require_tree .
+var duoshuoQuery = {short_name:"ddjoke"};
+$(function() {
+  $("img.lazy").lazyload();
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+  $('body').
+  on('mouseenter','#bdshare_weixin_qrcode_dialog_qr',function(){console.log(this);$('#bdshare_weixin_qrcode_dialog table').width($('#bdshare_weixin_qrcode_dialog table').height())}).
+  on('mouseleave','#bdshare_weixin_qrcode_dialog_qr',function(){console.log(this);$('#bdshare_weixin_qrcode_dialog table').width($('#bdshare_weixin_qrcode_dialog table').height())})//.
+})

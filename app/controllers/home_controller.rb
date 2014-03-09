@@ -3,6 +3,12 @@ class HomeController < ApplicationController
   layout 'yixin'
   skip_before_filter :verify_authenticity_token, only: [:yixin]
   def index
+    @longs = Joke.long.recent.limit(3)
+    @shorts = Joke.short.recent.page
+  end
+
+  def download
+    @apk = Apk.recent.first
   end
 
   def yixin
