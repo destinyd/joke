@@ -22,6 +22,10 @@ class Joke
   scope :newer_by, lambda{|joke| where(:created_at.gt => joke.created_at).older}
   scope :older_by, lambda{|joke| where(:created_at.lt => joke.created_at).recent}
 
+  scope :day, where(:created_at.gt => 1.day.ago)
+  scope :hot, desc(:forward)
+  scope :day_hot, day.hot
+
   taggable_on :tags
 
   def older

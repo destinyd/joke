@@ -49,3 +49,4 @@ group :test do
   gem 'email_spec'
   gem 'mongoid-rspec'
 end
+gem "figaro", ">= 0.6.3"
