@@ -64,3 +64,27 @@
 .col-md-8 img{
   max-width: 580px;
 }
+
+/*sidebar*/
+.sidebar-fixed.affix-top {
+  position:relative;
+}
+.sidebar-fixed.affix {
+  position:position;
+  /*position:relative;*/
+  top:60px;
+}
+
+/*@media (min-width: 767px) {*/
+  /*.sidebar-fixed {*/
+    /*width: 293px;*/
+  /*}*/
+/*}*/
+
+@media (min-width: 992px) {
+  .sidebar-fixed {
+    /*position:static;*/
+    width: 360px;
+  }
+}
+/*sidebar end*/
