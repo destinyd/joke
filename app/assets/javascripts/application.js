@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require kindeditor
 //= require bootstrap
 //= require jquery.lazyload.min
 // require_tree .

@@ -1,0 +1,16 @@
+<div class="well">
+  <%= simple_form_for(@joke_offer) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :text, :as => :kindeditor, label: false, allowFileManager: false, :input_html => { items: %w(fontname fontsize | forecolor hilitecolor bold italic underline removeformat | justifyleft justifycenter justifyright insertorderedlist insertunorderedlist | emoticons) } %>
+      <%= f.input :image %>
+      <%= f.input :tag_list, hint: '用半角逗号,分割，如：爆笑,无节操' %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

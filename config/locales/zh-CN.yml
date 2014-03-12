@@ -198,15 +198,11 @@ zh-CN:
       wine_monitor: 酒价监视器
       website: 网站
       joke: 笑料
+      joke_offer: 笑料
       admin_user: 管理员
     attributes:
-      wine:
-        min_price: 历史最低价
-        current_price: 现价
-        fit_price: 建议入手价
-      wine_monitor:
-        sn: 商品编号
-        wines: 所属美酒
+      joke:
+        text: 内容
 
   attributes:
     created_at: 创建于
@@ -226,7 +222,6 @@ zh-CN:
     title: 标题
     content: 内容
     is_trader: 我是商家
-    text: 描述
     image: 图片
     value: 内容
     _type: 类型
@@ -241,7 +236,7 @@ zh-CN:
     last_sign_in_at: 上次登录时间
     last_sign_in_ip: 上次登录IP
     status: 状态
-    tag_list: Tag
+    tag_list: Tags
     min_price: 最低价格
     current_price: 现价
     norm: 规格
@@ -349,6 +344,10 @@ zh-CN:
       image: 有图有真相
       video: 视频笑料
       show: 笑料
+    joke_offers:
+      index: 自己的笑料
+      list: 待审的笑料
+      new: 爆笑料
     new: 添加
     create: 提交
     index: 列表
@@ -362,6 +361,11 @@ zh-CN:
       category: 分类%{category}
     tags: 标签
     tag: "标签: %{tag}"
+    sessions:
+      new: 登录
+    registrations:
+      new: 注册
+      edit: 修改资料
 
   will_paginate:
     previous_label: "&#8592; 上一页"

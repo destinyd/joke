@@ -4,6 +4,7 @@ class Joke
   include Mongoid::Timestamps
   include Mongoid::TaggableOn
   field :joke_id, type: String
+  field :title, type: String
   field :name, type: String
   #field :time, type: String
   field :text, type: String
@@ -57,7 +58,13 @@ class Joke
   end
 
   def title
-    @title ||= is_short? ? strip_for_title : name
+    if read_attribute(:title)
+      @title = read_attribute(:title)
+    else
+      @title = is_short? ? strip_for_title : name
+      update_attribute :title, @title
+    end
+    @title
   end
 
   def strip_for_title

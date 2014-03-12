@@ -1,0 +1,2 @@
+module JokeOffersHelper
+end

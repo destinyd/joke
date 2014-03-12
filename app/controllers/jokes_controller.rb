@@ -1,6 +1,6 @@
 class JokesController < InheritedResources::Base
   before_filter :crummy_all
-  before_filter :crummy_other, except: [:index, :show]
+  before_filter :crummy_other, only: [:long, :short, :image, :video]
   respond_to :html, :json
   actions :index, :show
 

@@ -27,3 +27,8 @@ p.text{
     }
   }
 }
+.panel-title-inline{
+  white-space:nowrap;
+  /*display: inline;*/
+  overflow: hidden;
+}

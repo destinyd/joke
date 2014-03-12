@@ -1,0 +1,42 @@
+<% 
+  set_meta_tags({
+    title: @joke_offer.title,
+    description: "#{@joke_offer.text}_#{t('site_title')}",
+    keywords: @joke_offer.tags.push(t('site_keywords')).join(',')
+  })
+%>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>
+      <%= @joke_offer.human_title %>
+    </h1>
+  </div>
+  <div class="panel-body">
+    <% if @joke_offer.is_image? %>
+      <p class="text-center">
+        <%= image_tag @joke_offer.image_url %>
+      </p>
+    <% end -%>
+    <p class="text">
+      <%= @joke_offer.text.html_safe %>
+    </p>
+    <p> &nbsp; </p>
+    <p> &nbsp; </p>
+    <div class="pull-left">
+      <%= ad(:content_left) %>
+    </div>
+    <div class="text-center">
+      <%= ad(:content_mid) %>
+    </div>
+    <div class="text-center">
+      <%= ad(:content_bottom) %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="pull-right timestamp"><%= @joke_offer.created_at %></div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<%#= render "layouts/comments" %>
+

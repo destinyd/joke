@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
 ruby '2.1.1'
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.17'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -8,6 +8,7 @@ group :assets do
 end
 #gem 'jquery-rails'
 gem 'jquery-rails', "< 3.0.0"
+gem 'sass', ['>= 3.1', '< 3.3']
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'mongoid'
 gem 'simple_form'
@@ -25,7 +26,7 @@ gem 'sitemap_generator'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx, :ruby]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
@@ -34,7 +35,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  #gem 'debugger', github: 'cldwalker/debugger'
+  gem 'debugger', github: 'cldwalker/debugger'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -50,3 +51,13 @@ group :test do
   gem 'mongoid-rspec'
 end
 gem "figaro", ">= 0.6.3"
+gem 'rails_kindeditor'
+gem "mongoid-enum"
+gem 'cells'
+gem 'rspec-cells', :group => [:development, :test]
+
+#omniauth
+gem 'omniauth'
+gem 'omniauth-oauth2', git: 'git://github.com/intridea/omniauth-oauth2.git'
+gem 'omniauth-baidu-social','>= 0.0.1',
+  git: 'git://github.com/destinyd/omniauth-baidu-social.git'

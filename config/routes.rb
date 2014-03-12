@@ -1,4 +1,11 @@
 Ddjoke::Application.routes.draw do
+  resources :joke_offers do 
+    get :list, on: :collection
+    member do 
+      get :approved
+      get :declined
+    end
+  end
   post 'yixin' => 'mp#yixin'
   get 'download' => "home#download", as: :download
   get 'jokes(-p:page)' => 'jokes#index', as: :jokes, defaults: {page: 1}
@@ -9,5 +16,8 @@ Ddjoke::Application.routes.draw do
   resources :jokes
   root :to => "home#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, controllers: {
+    omniauth_callbacks: :authentications
+  }
   ActiveAdmin.routes(self)
 end

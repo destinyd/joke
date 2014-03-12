@@ -1,0 +1,13 @@
+<% if joke_offers.blank? %>
+  <div class="well">
+    你还没有提交任何笑料，还不赶紧来<%= link_to '爆笑料', new_joke_offer_path, class: 'btn btn-primary' %>
+  </div>
+<% else %>
+  <%= render joke_offers %>
+<% end %>
+
+<div class="pull-right">
+  <%= paginate joke_offers %>
+</div>
+
+<%#= render "layouts/share_v2", joke_offers: joke_offers %>

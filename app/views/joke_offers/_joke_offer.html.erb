@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to joke_offer.human_title, joke_offer %>
+  </div>
+  <div class="panel-body">
+    <% if joke_offer.is_image? %>
+      <p class="text-center">
+        <%= image_tag joke_offer.image_url %>
+      </p>
+    <% end -%>
+    <p>
+      <%= joke_offer.text.html_safe %>
+    </p>
+  </div>
+  <div class="panel-footer">
+    <div class="pull-right"><%= joke_offer.created_at %></div>
+    <div class="clearfix"></div>
+  </div>
+</div>

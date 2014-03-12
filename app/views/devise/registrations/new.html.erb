@@ -1,0 +1,31 @@
+<h1>注册</h1>
+<div class="border-form-div-outside row">
+  <div class="col-sm-8" style="border:none">
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, :autofocus => true %>
+      <% if @user.password_required? %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      <% end -%>
+      <%= f.input :email %>
+      <%= f.button :submit, '注册', :class => 'btn-primary' %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="col-sm-4 pl-30">
+    快速注册：
+    <span id="login"></span>
+    <script type="text/javascript" id="bd_soc_login_boot"></script>
+    <script type="text/javascript">
+      (function(){
+        var t = new Date().getTime(),
+    script = document.getElementById("bd_soc_login_boot"),
+    redirect_uri = encodeURIComponent("<%= ENV['REDIRECT_URL'] %>"),
+    domid = "login",
+    src = "http://openapi.baidu.com/social/oauth/2.0/connect/login?redirect_uri=" + redirect_uri + "&domid=" + domid + "&client_type=web&response_type=code&media_types=sinaweibo%2Cqqdenglu%2Cbaidu%2Cqqweibo%2Ckaixin%2Crenren&size=-1&button_type=1&client_id=DGb20UWBRBeGek8gEEHZ3EgQ&view=embedded&size=234x111&t=" + t;
+        script.src = src;
+      })();
+    </script>
+  </div>
+</div>
