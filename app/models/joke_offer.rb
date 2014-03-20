@@ -39,7 +39,7 @@ class JokeOffer
   after_update :build_joke
   def build_joke
     if !self.joke and status == :approved
-      self.joke = Joke.create(title: title, text: text, joke_id: id, imgurl: image_url, name: user.try(:name), tag_list: (tags || []).push('原创').uniq.join(','))
+      self.joke = Joke.create(title: title, text: text, joke_id: id, imgurl: image_url, name: user.try(:name), tag_list: (tags || []).push('原创', '短篇').uniq.join(','))
       save
     end
   end
