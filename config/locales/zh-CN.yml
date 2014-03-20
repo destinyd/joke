@@ -348,6 +348,9 @@ zh-CN:
       index: 自己的笑料
       list: 待审的笑料
       new: 爆笑料
+    sitemap_pages:
+      index: 笑料索引
+      page: 第%{page}页
     new: 添加
     create: 提交
     index: 列表

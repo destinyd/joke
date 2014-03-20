@@ -1,0 +1,12 @@
+<div class="well">
+  <% @jokes.each do |joke| %>
+    <div class="col-md-12">
+      <%= link_to joke.title.block(50), joke_url(joke) %>
+    </div>
+  <% end -%>
+  <div class="clearfix"></div>
+  <div class="pull-right">
+    <%= paginate @jokes %>
+  </div>
+  <div class="clearfix"></div>
+</div>
