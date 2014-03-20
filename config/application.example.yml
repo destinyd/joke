@@ -3,3 +3,4 @@ YIXIN_SECRET: test
 REDIRECT_URL: 'http://local.joke.realityandapp.com/users/auth/baidu/callback'
 BAIDU_APPKEY: test
 BAIDU_SECRET: test
+HOST: 'http://local.joke.realityandapp.com'
