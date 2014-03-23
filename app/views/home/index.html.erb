@@ -3,42 +3,46 @@
 <%= ad(:home_top) %>
 </div>
 <div class="col-md-12">
-<div class="panel panel-default hidden-xs">
-  <div class="panel-heading">
-    <span class="pull-right">
-      <%= link_to '更多', long_path %>
-    </span>
-    最新长篇笑料
-  </div>
-  <div class="panel-body">
-    <% @longs.each do |long| %>
-      <div class="col-md-4">
-        <h4>
-          <%= link_to long.name, long %>
-        </h4>
-        <p> <%= strip_tags(long.text).block(200) %> [<%= link_to '查看全文', long %>] </p>
-        <div class="meta pull-right">
-          <small>
-            <time><%= long.created_at.cc_time %></time>
-          </small>
-        </div>
-        <div class="clearfix"></div>
+  <div class="panel panel-default hidden-xs">
+    <div class="panel-heading">
+      <span class="pull-right">
+        <%= link_to '更多', long_path %>
+      </span>
+      最新长篇笑料
+    </div>
+    <div class="panel-body">
+      <% @longs.each do |long| %>
+        <div class="col-md-4">
+          <h4>
+            <%= link_to long.name, long %>
+          </h4>
+          <p> <%= strip_tags(long.text).block(200) %> [<%= link_to '查看全文', long %>] </p>
+          <div class="meta pull-right">
+            <small>
+              <time><%= long.created_at.cc_time %></time>
+            </small>
+          </div>
+          <div class="clearfix"></div>
 
-      </div>
-    <% end -%>
+        </div>
+      <% end -%>
+    </div>
   </div>
 </div>
-</div>
+<div class="clearfix"></div>
 <div class="text-center">
-<%= ad(:home_mid) %>
+  <%= ad(:home_mid) %>
 </div>
+<div class="clearfix"></div>
 <div class="col-md-8">
   <%= render @shorts %>
   <%= render "layouts/share_v2", jokes: @shorts %>
+  <div class="clearfix"></div>
 
   <div class="pull-right">
     <%= paginate @shorts, :params => {:controller => 'jokes', :action => 'short'} %>
   </div>
+  <div class="clearfix"></div>
 </div>
 <div class="col-md-4">
   <%= render "layouts/sidebar" %>
