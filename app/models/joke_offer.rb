@@ -13,7 +13,7 @@ class JokeOffer
   belongs_to :joke
 
   validates :title, presence: true, length: { minimum: 3 }
-  validates :text, presence: true, uniqueness: true, length: { minimum: 15 }
+  validates :text, presence: true
 
   scope :recent, desc(:created_at)
 
@@ -39,7 +39,9 @@ class JokeOffer
   after_update :build_joke
   def build_joke
     if !self.joke and status == :approved
-      self.joke = Joke.create(title: title, text: text, joke_id: id, imgurl: image_url, name: user.try(:name), tag_list: (tags || []).push('原创', '短篇').uniq.join(','))
+      tmp_tags = (tags || []).push('原创', '短篇')
+      tmp_tags.push('有图') unless image.blank?
+      self.joke = Joke.create(title: title, text: text, joke_id: id, imgurl: image_url, name: user.try(:name), tag_list: tmp_tags.uniq.join(','))
       save
     end
   end
