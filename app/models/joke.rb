@@ -68,7 +68,7 @@ class Joke
   end
 
   def strip_for_title
-    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ ]/,'').block(30)}_#{name}无节操吐槽"
+    "#{Joke.strip(text).block(30)}_#{name}无节操吐槽"
   end
 
   def description
@@ -81,5 +81,9 @@ class Joke
 
   def visit!
     Joke.update_counters _id, forward: 1
+  end
+
+  def self.strip(text)
+    "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ \r\n]/,'')}"
   end
 end
