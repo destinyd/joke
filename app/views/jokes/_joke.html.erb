@@ -14,9 +14,12 @@
         <embed src="<%= joke.to_youku_player_url %>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
       </p>
     <% elsif joke.is_image? %>
-      <p class="text-center">
-        <%= image_tag joke.imgurl %>
-      </p>
+      <div class="text-center">
+        <%= image_tag 'loading_bar.gif', class:'lazy img-responsive center-block', 'data-original' => joke.imgurl, alt: joke.title %>
+      </div>
+      <%#<div class="text-center">%>
+        <%#= image_tag joke.imgurl, class:'img-responsive'  %>
+      <%#</div>%>
     <% end -%>
     <p>
       <% if joke.is_long? %>
