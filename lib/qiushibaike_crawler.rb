@@ -52,7 +52,7 @@ class QiushibaikeCrawler
           Joke.create joke_id: joke_id, name: name, text: content, tag_list: '短篇,糗事百科'
         end
       rescue Exception => ex
-        p 'QingsongCrawler get error:' + link
+        p 'QiushibaikeCrawler get error:' + link
       end
     end
   end
