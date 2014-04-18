@@ -5,6 +5,7 @@ scheduler.every "1h", :first_at => Time.now + 600 do
   JokeCrawler.new({all:false}).run
   QingsongCrawler.new.run
   QiushibaikeCrawler.new.run
+  BaozoumanhuaCrawler.new.run
 end
 
 scheduler.every "1d", first_at: '1h' do
