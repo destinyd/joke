@@ -55,7 +55,7 @@ class User
   validates :phone, format: {with: /1[3458](\d{9})/}, uniqueness: true, if: :phone?#, presence: true
   attr_accessor :omniauth_session#, :login
   #attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at, :phone#, :login
+  #attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at, :phone#, :login #this
 
   has_many :authentications
   has_many :joke_offers

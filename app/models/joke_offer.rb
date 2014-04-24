@@ -2,11 +2,13 @@ class JokeOffer
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::TaggableOn
-  include Mongoid::Enum
+  extend Enumerize
+  #include Mongoid::Enum
 
   field :title, type: String
   field :text, type: String
-  enum :status, [:pending, :approved, :declined], default: :pending
+  enumerize :status, in: [:pending, :approved, :declined], default: :pending
+  #enum :status, [:pending, :approved, :declined], default: :pending
   mount_uploader :image, ImageUploader
   taggable_on :tags
   belongs_to :user
@@ -15,7 +17,7 @@ class JokeOffer
   validates :title, presence: true, length: { minimum: 3 }
   validates :text, presence: true
 
-  scope :recent, desc(:created_at)
+  scope :recent, -> {desc(:created_at)}
 
   def is_image?
     !image.blank?

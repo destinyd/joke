@@ -12,13 +12,13 @@ class Authentication
   validates :provider, :uid, :access_token, presence: true
   validates :provider, uniqueness: { scope: :user_id }
 
-  attr_accessible :user_id, :provider, :uid, :access_token, :uname, :is_share, on: :create
-  attr_accessible :is_share, :access_token, on: :update
+  #attr_accessible :user_id, :provider, :uid, :access_token, :uname, :is_share, on: :create #this
+  #attr_accessible :is_share, :access_token, on: :update #this
 
-  scope :no_baidu, not_in(provider: 'baidu')
-  scope :shares, where(is_share: true)
+  scope :no_baidu, -> {not_in(provider: 'baidu')}
+  scope :shares, -> {where(is_share: true)}
 
-  scope :must_shares, no_baidu.shares
+  scope :must_shares, -> {no_baidu.shares}
 
   def self.create_from_hash(user_id, omniauth)
     self.create!(

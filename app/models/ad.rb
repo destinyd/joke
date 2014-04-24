@@ -6,9 +6,9 @@ class Ad
   field :content, type: String
   field :ad_type, type: Integer, default: 0
   field :finished_at, type: Date
-  attr_accessible :url, :content, :ad_type, :finished_at
+  #attr_accessible :url, :content, :ad_type, :finished_at #this
 
-  scope :running, any_of({:finished_at.lt => Time.now}, {finished_at: nil})
+  scope :running, -> {any_of({:finished_at.lt => Time.now}, {finished_at: nil})}
 
   validates :ad_type, presence: true, uniqueness: true
 
