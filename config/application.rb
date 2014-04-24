@@ -43,5 +43,6 @@ module Ddjoke
 
     #4.1
     config.action_dispatch.cookies_serializer = :hybrid
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end

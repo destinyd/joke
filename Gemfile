@@ -19,13 +19,14 @@ gem 'inherited_resources'
 gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap'
 gem 'mongoid_taggable_on'
 gem 'meta-tags', :require => 'meta_tags'
-#gem 'activeadmin-mongoid', git: '/home/dd/ap/gem/activeadmin-mongoid/.git', branch: 'rails4-order-clause'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin-mongoid', github: 'fred/activeadmin-mongoid', branch: 'rails4-order-clause'
 gem "crummy", "~> 1.8.0"
 # sitemap
 gem 'sitemap_generator'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :development do
-  #gem 'better_errors'
+  gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx, :ruby]
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -68,6 +69,6 @@ gem 'devise'
 
 #rails4
 gem 'activeresource', '~> 4.0.0'
-gem 'protected_attributes', '~> 1.0.1'
+#gem 'protected_attributes', '~> 1.0.1'
 gem "bson"
 gem "moped", github: "mongoid/moped"

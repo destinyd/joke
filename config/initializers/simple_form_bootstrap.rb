@@ -1,7 +1,4 @@
-# http://stackoverflow.com/questions/14972253/simpleform-default-input-class
-# https://github.com/plataformatec/simple_form/issues/316
-# http://stackoverflow.com/questions/13656819/simple-form-w-bootsrap-check-box
-# https://gist.github.com/tokenvolt/6599141
+#https://github.com/gregbell/active_admin/issues/2703#issuecomment-38140864
 inputs = %w[
   CollectionSelectInput
   DateTimeInput
@@ -15,15 +12,19 @@ inputs = %w[
 ]
 
 inputs.each do |input_type|
-  superclass = "SimpleForm::Inputs::#{input_type}".constantize
-
-  new_class = Class.new(superclass) do
-    def input_html_classes
-      super.push('form-control')
+  superclass = "SimpleForm::Inputs::#{input_type}"
+  hack = %|
+    module SimpleForm
+      module Inputs
+        class #{superclass}
+          def input_html_classes
+            super.push('form-control')
+          end
+        end
+      end
     end
-  end
-
-  Object.const_set(input_type, new_class)
+  |
+  eval(hack)
 end
 
 # Use this setup block to configure all options available in SimpleForm.
@@ -118,4 +119,25 @@ SimpleForm.setup do |config|
   end
 
   config.default_wrapper = :bootstrap3
+
+  config.wrappers :append_more, tag: 'div', class: 'form-group', error_class: 'has-error',
+    defaults:         { input_html: { class: 'default_class' } } do |b|
+    b.use :html5
+    b.use :placeholder
+    b.wrapper tag: 'div', class: 'controls' do |input|
+      input.use :label
+      input.wrapper tag: 'div', class: 'input-group add-on' do |prepend|
+        prepend.use :input
+        prepend.wrapper tag: 'div', class: 'input-group-btn' do |prepend_div| ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
+          prepend_div.wrapper tag: 'button', class: 'btn btn-default', click: 'javascript:void(0)' do |prepend_btn| ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
+            prepend_btn.wrapper tag: 'i', class: 'glyphicon glyphicon-align-justify' do
+            end
+          end
+        end
+      end
+      input.use :hint, wrap_with: { tag: 'span', class: 'help-block' }
+      input.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }
+    end
+  end
+
 end

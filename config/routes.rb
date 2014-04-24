@@ -16,9 +16,9 @@ Ddjoke::Application.routes.draw do
   get 'video(-p:page)' => 'jokes#video', as: :video, defaults: {page: 1}
   resources :jokes
   root :to => "home#index"
-  #devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, controllers: {
     omniauth_callbacks: :authentications
   }
-  #ActiveAdmin.routes(self)
+  ActiveAdmin.routes(self)
 end
