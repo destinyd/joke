@@ -11,10 +11,10 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 #rails4
-require "bson"
-require "moped"
+#require "bson"
+#require "moped"
 
-Moped::BSON = BSON
+#Moped::BSON = BSON
 
 module Ddjoke
   class Application < Rails::Application

@@ -14,14 +14,14 @@ class Joke
   field :videourl, type: String
   validates :joke_id, presence: true, uniqueness: true
   scope :recent, -> {desc(:created_at)}
-  scope :older, -> {asc(:created_at)}
+  #scope :older, -> {asc(:created_at)}
   scope :short, -> {where(:tags.in => ['短篇'])}
   scope :long, -> {where(:tags.in => ['长篇'])}
   scope :image, -> {where(:tags.in => ['有图'])}
   scope :video, -> {not_in(videourl: ['', nil])}
 
-  scope :newer_by, -> {lambda{|joke| where(:created_at.gt => joke.created_at).older}}
-  scope :older_by, -> {lambda{|joke| where(:created_at.lt => joke.created_at).recent}}
+  scope :newer_by, -> (joke){where(:id.gt => joke.id)}
+  scope :older_by, -> (joke){where(:id.lt => joke.id)}
 
   scope :day, -> {where(:created_at.gt => 1.day.ago)}
   scope :hot, -> {desc(:forward)}
