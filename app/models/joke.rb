@@ -13,15 +13,15 @@ class Joke
   #field :comment, type: Integer
   field :videourl, type: String
   validates :joke_id, presence: true, uniqueness: true
-  scope :recent, -> {desc(:created_at)}
-  #scope :older, -> {asc(:created_at)}
+  scope :recent, -> {desc(:_id)}
+  scope :older, -> {asc(:_id)}
   scope :short, -> {where(:tags.in => ['短篇'])}
   scope :long, -> {where(:tags.in => ['长篇'])}
   scope :image, -> {where(:tags.in => ['有图'])}
   scope :video, -> {not_in(videourl: ['', nil])}
 
-  scope :newer_by, -> (joke){where(:id.gt => joke.id)}
-  scope :older_by, -> (joke){where(:id.lt => joke.id)}
+  scope :newer_by, -> (joke){ where(:_id.gt => joke._id).recent}
+  scope :older_by, -> (joke){ where(:_id.lt => joke._id).recent}
 
   scope :day, -> {where(:created_at.gt => 1.day.ago)}
   scope :hot, -> {desc(:forward)}
