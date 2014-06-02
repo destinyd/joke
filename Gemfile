@@ -22,7 +22,7 @@ gem 'meta-tags', :require => 'meta_tags'
 gem 'activeadmin-mongoid'
 gem "crummy", "~> 1.7.1"
 # sitemap
-gem 'sitemap_generator'
+gem 'sitemap_generator', github: 'destinyd/sitemap_generator'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :development do
   gem 'better_errors'
