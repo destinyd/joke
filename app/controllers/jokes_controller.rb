@@ -31,6 +31,26 @@ class JokesController < InheritedResources::Base
     respond_with(@jokes)
   end
 
+  def funlaile
+    @jokes = Joke.funlaile.recent.page(params[:page])
+    respond_with(@jokes)
+  end
+
+  def wufunlaile
+    @jokes = Joke.wufunlaile.recent.page(params[:page])
+    respond_with(@jokes)
+  end
+
+  def wanfunlaile
+    @jokes = Joke.wanfunlaile.recent.page(params[:page])
+    respond_with(@jokes)
+  end
+
+  def jionggeshuoshi
+    @jokes = Joke.jionggeshuoshi.recent.page(params[:page])
+    respond_with(@jokes)
+  end
+
   protected
   def collection
     @jokes ||= end_of_association_chain.recent.page(params[:page])

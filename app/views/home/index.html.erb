@@ -14,7 +14,7 @@
       <% @longs.each do |long| %>
         <div class="col-md-4">
           <h4>
-            <%= link_to long.name, long %>
+            <%= link_to long.title, long %>
           </h4>
           <p> <%= strip_tags(long.text).block(200) %> [<%= link_to '查看全文', long %>] </p>
           <div class="meta pull-right">

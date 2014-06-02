@@ -31,16 +31,25 @@ class QingsongCrawler
   end
 
   def get_recent
+    name = '17轻松'
     get_rss.xpath('//item').each do |item|
       joke_id =  item.xpath('guid').text
-      name = item.xpath('title').text
+      title = item.xpath('title').text
       link = item.xpath('link').text
       begin
-        if is_need?(name, link)
+        if is_need?(title, link)
           if regex_short_url.match(link)
-            Joke.create joke_id: joke_id, name: name, text: get_cotent(link), tag_list: '短篇,轻松'
+            tags = ['轻松','短篇']
+            Joke.create joke_id: joke_id, title: title, name: name, text: get_cotent(link), tag_list: tags.join(',')
           else
-            Joke.create joke_id: joke_id, name: name, text: get_cotent(link), tag_list: '长篇,轻松'
+            tags = ['轻松','长篇']
+            array_need_qingsong_tags.each do |tag|
+              tmp = title.scan tag
+              tags.push tmp.first unless tmp.blank?
+            end
+            tags.compact!
+            tags.uniq!
+            Joke.create joke_id: joke_id, title: title, name: name, text: get_cotent(link), tag_list: tags.join(',')
           end unless Joke.where(joke_id: joke_id).first
         end
       rescue Exception => ex
@@ -49,8 +58,8 @@ class QingsongCrawler
     end
   end
 
-  def is_need?(name, link)
-    return true if regex_need_url.match(link) or regex_qingsong_name.match(name)
+  def is_need?(title, link)
+    return true if regex_need_url.match(link) or regex_qingsong_title.match(title)
   end
 
   def regex_wrap
@@ -61,8 +70,12 @@ class QingsongCrawler
     @regex_need_url ||= /news-(?:\d+$|tucao.*|FUN\d+|jiongget.*|jiecao\d+|yijiongt.*)/
   end
 
-  def regex_qingsong_name
-    @regex_qingsong_name ||= /轻松一刻|内涵图|一囧|囧哥|吐槽/
+  def regex_qingsong_title
+    @regex_qingsong_title ||= /轻松一刻|内涵图|一囧|囧哥|吐槽/
+  end
+
+  def array_need_qingsong_tags
+    @array_need_qingsong_tags ||= %w(轻松一刻 内涵图 一日一囧 囧哥说事 神吐槽 FUN来了 晚FUN来了 午FUN来了)
   end
 
   def regex_short_url

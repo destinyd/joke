@@ -19,6 +19,10 @@ class Joke
   scope :long, where(:tags.in => ['长篇'])
   scope :image, where(:tags.in => ['有图'])
   scope :video, not_in(videourl: ['', nil])
+  scope :funlaile, where(:tags.in => ['FUN来了'])
+  scope :wanfunlaile, where(:tags.in => ['晚FUN来了'])
+  scope :wufunlaile, where(:tags.in => ['午FUN来了'])
+  scope :jionggeshuoshi, where(:tags.in => ['囧哥说事'])
 
   scope :newer_by, lambda{|joke| where(:created_at.gt => joke.created_at).older}
   scope :older_by, lambda{|joke| where(:created_at.lt => joke.created_at).recent}
@@ -85,5 +89,14 @@ class Joke
 
   def self.strip(text)
     "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ \r\n]/,'')}"
+  end
+
+  def self.tags
+    @tags = all.map(&:tags).flatten.uniq || []
+    @tags -= %w(有图 视频 无图 长篇 轻松 短篇)
+  end
+
+  def self.tags_english_names
+    %w(short long image video funlaile wufunlaile wanfunlaile jionggeshuoshi)
   end
 end
