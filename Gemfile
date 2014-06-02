@@ -68,7 +68,7 @@ gem 'omniauth-baidu-social','>= 0.0.1',
 gem 'devise'
 
 #rails4
-gem 'activeresource', '~> 4.0.0'
+#gem 'activeresource', '~> 4.0.0'
 #gem 'protected_attributes', '~> 1.0.1'
-gem "bson"
-gem "moped", github: "mongoid/moped"
+#gem "bson"
+#gem "moped", github: "mongoid/moped"
