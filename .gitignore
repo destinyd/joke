@@ -74,7 +74,7 @@ pickle-email-*.html
 # vim artifacts
 **.swp
 
-Gemfile.lock
+#Gemfile.lock
 config/mongoid.yml
 /public/
 
