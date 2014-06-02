@@ -1,7 +1,7 @@
 <h1>登录</h1>
 <div class="border-form-div-outside row">
   <div class="border-form-div">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => session_url(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <%= f.label :email %>
       <%= f.text_field :email, :autofocus => true, :placeholder => '邮箱/手机号码/用户名', class:'form-control' %>

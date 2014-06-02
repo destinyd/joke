@@ -2,7 +2,7 @@ ActiveAdmin.register Ad do
   index do
     selectable_column
     column :ad_type, :sortable => true do |ad|
-      link_to Ad.ids[ad.ad_type], wojiudiaochuo_ad_path(ad)
+      link_to Ad.ids[ad.ad_type], wojiudiaochuo_ad_url(ad)
     end
     column :finished_at
     actions

@@ -1,7 +1,7 @@
 <h1>注册</h1>
 <div class="border-form-div-outside row">
   <div class="col-sm-8" style="border:none">
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_url(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
       <%= f.error_notification %>
       <%= f.input :name, :autofocus => true %>
       <% if @user.password_required? %>

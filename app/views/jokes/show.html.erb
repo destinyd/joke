@@ -42,10 +42,10 @@
     </div>
     <ul class="pager">
       <li class="previous">
-        <%= link_to "&larr;".html_safe + @joke.older.name, @joke.older if @joke.older %>
+        <%= link_to "&larr;".html_safe + @joke.older.name, joke_url(@joke.older) if @joke.older %>
       </li>
       <li class="next">
-        <%= link_to (@joke.newer.name + "&rarr;").html_safe, @joke.newer if @joke.newer %>
+        <%= link_to (@joke.newer.name + "&rarr;").html_safe, joke_url(@joke.newer) if @joke.newer %>
       </li>
     </ul>
     <div class="text-center">

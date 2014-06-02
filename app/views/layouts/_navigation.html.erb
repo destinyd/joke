@@ -1,22 +1,22 @@
 <div class="collapse navbar-collapse">
   <ul class="nav navbar-nav">
     <%= content_tag 'li',class: (controller_name == 'jokes' and action_name == 'index') ? 'active' : '' do -%>
-      <%= link_to '最新', jokes_path %>
+      <%= link_to '最新', jokes_url %>
     <% end -%>
     <%= content_tag 'li',class: %(short long image).include?(action_name) ? 'active dropdown' : 'dropdown' do -%>
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类 <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <%= content_tag 'li',class: action_name == 'short' ? 'active' : '' do -%>
-          <%= link_to '短篇笑料', short_path %>
+          <%= link_to '短篇笑料', short_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'long' ? 'active' : '' do -%>
-          <%= link_to '长篇笑料', long_path %>
+          <%= link_to '长篇笑料', long_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'image' ? 'active' : '' do -%>
-          <%= link_to '有图有真相', image_path %>
+          <%= link_to '有图有真相', image_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'video' ? 'active' : '' do -%>
-          <%= link_to '视频笑料', video_path %>
+          <%= link_to '视频笑料', video_url %>
         <% end -%>
       </ul>
     <% end -%>
@@ -24,24 +24,24 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门 <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <%= content_tag 'li',class: action_name == 'funlaile' ? 'active' : '' do -%>
-          <%= link_to 'FUN来了', funlaile_path %>
+          <%= link_to 'FUN来了', funlaile_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'wufunlaile' ? 'active' : '' do -%>
-          <%= link_to '午FUN来了', wufunlaile_path %>
+          <%= link_to '午FUN来了', wufunlaile_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'wanfunlaile' ? 'active' : '' do -%>
-          <%= link_to '晚FUN来了', wanfunlaile_path %>
+          <%= link_to '晚FUN来了', wanfunlaile_url %>
         <% end -%>
         <%= content_tag 'li',class: action_name == 'jionggeshuoshi' ? 'active' : '' do -%>
-          <%= link_to '囧哥说事', jionggeshuoshi_path %>
+          <%= link_to '囧哥说事', jionggeshuoshi_url %>
         <% end -%>
       </ul>
     <% end -%>
     <%= content_tag 'li',class: action_name == 'download' ? 'active' : '' do -%>
-      <%= link_to '应用下载', download_path %>
+      <%= link_to '应用下载', download_url %>
     <% end -%>
     <%= content_tag 'li',class: (controller_name == 'joke_offers' and action_name == 'index') ? 'active' : '' do -%>
-      <%= link_to '爆笑料', new_joke_offer_path %>
+      <%= link_to '爆笑料', new_joke_offer_url %>
     <% end -%>
   </ul>
   <ul class="nav navbar-nav pull-right">

@@ -12,11 +12,11 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :signed_in)
       sign_in(:user, authentication.user)
       remember_me(authentication.user)
-      redirect_to root_path
+      redirect_to root_url
     elsif current_user
       authentication = Authentication.create_from_hash(current_user.id, omniauth)
       set_flash_message(:notice, :add_provider_success)
-      redirect_to user_authentications_path
+      redirect_to user_authentications_url
     else
       session[:omniauth] = omniauth.except("extra")
       set_flash_message(:notice, :fill_your_info)
@@ -32,11 +32,11 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :signed_in)
       sign_in(:user, authentication.user)
       authentication.user.remember_me!
-      redirect_to root_path
+      redirect_to root_url
     elsif current_user
       authentication = Authentication.create_from_hash(current_user.id, omniauth)
       set_flash_message(:notice, :add_provider_success)
-      redirect_to authentications_path
+      redirect_to authentications_url
     else
       session[:omniauth] = omniauth.except("extra")
       set_flash_message(:notice, :fill_your_info)

@@ -37,7 +37,7 @@ class JokeOffersController < InheritedResources::Base
   end
 
   def crummy_all
-    add_crumb(I18n.t("action.joke_offers.index"), joke_offers_path)
+    add_crumb(I18n.t("action.joke_offers.index"), joke_offers_url)
   end
 
   def crummy_show

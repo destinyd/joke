@@ -3,15 +3,15 @@
     <%= link_to @user, '#' %>
   </li>
   <li>
-    <%= link_to '退出', destroy_user_session_path, :method=>'delete' %>
+    <%= link_to '退出', destroy_user_session_url, :method=>'delete' %>
   </li>
 <% else %>
   <li class="dropdown">
-    <%= link_to new_user_session_path, class: 'dropdown-toggle', :'data-toggle' => 'dropdown' do %>
+    <%= link_to new_user_session_url, class: 'dropdown-toggle', :'data-toggle' => 'dropdown' do %>
       登录<span class="caret"></span>
     <% end -%>
     <div id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 0px 10px;">
-      <%= form_for("user", :url => user_session_path) do |f| %>
+      <%= form_for("user", :url => user_session_url) do |f| %>
         <div class="control-group">
           <div class="form-group">
             <%= f.text_field :login, placeholder: '邮箱/手机号码/用户名', class: 'form-control' %>
@@ -27,14 +27,14 @@
           </div>
             <div class="clearfix"></div>
         </div>
-        <%= link_to new_user_session_path, id: 'login_more' do %>
+        <%= link_to new_user_session_url, id: 'login_more' do %>
           使用微博、QQ、百度等帐号登录
         <% end -%>
       </div>
     <% end -%>
   </li>
   <li>
-    <%= link_to '注册', new_user_registration_path %>
+    <%= link_to '注册', new_user_registration_url %>
   </li>
 <% end %>
 <script type="text/javascript">

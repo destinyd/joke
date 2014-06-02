@@ -1,6 +1,6 @@
 <% if joke_offers.blank? %>
   <div class="well">
-    你还没有提交任何笑料，还不赶紧来<%= link_to '爆笑料', new_joke_offer_path, class: 'btn btn-primary' %>
+    你还没有提交任何笑料，还不赶紧来<%= link_to '爆笑料', new_joke_offer_url, class: 'btn btn-primary' %>
   </div>
 <% else %>
   <%= render joke_offers %>

@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="col-xs-9 panel-title-inline">
-      <%= link_to joke.title, joke %>
+      <%= link_to joke.title, joke_url(joke) %>
     </div>
     <div class="pull-right col-xs-3 text-right panel-title-inline">
       <%= joke.name %>
@@ -23,7 +23,7 @@
     <% end -%>
     <p>
       <% if joke.is_long? %>
-        <%= strip_tags(joke.text).block(300) %> [<%= link_to '查看全文', joke %>]
+        <%= strip_tags(joke.text).block(300) %> [<%= link_to '查看全文', joke_url(joke) %>]
       <% else %>
         <%= joke.text.html_safe %>
       <% end -%>
@@ -34,7 +34,7 @@
       <%= render "layouts/share", joke: joke %>
     </div>
     <!-- <div class="pinglun">
-        <%= link_to '评论', joke %>
+        <%= link_to '评论', joke_url(joke) %>
       </div> -->
     <div class="pull-right"><%= joke.created_at %></div>
     <div class="clearfix"></div>

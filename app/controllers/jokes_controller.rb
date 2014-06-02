@@ -57,7 +57,7 @@ class JokesController < InheritedResources::Base
   end
 
   def crummy_all
-    add_crumb(I18n.t("action.jokes.index"), jokes_path)
+    add_crumb(I18n.t("action.jokes.index"), jokes_url)
   end
 
   def crummy_show
@@ -65,6 +65,6 @@ class JokesController < InheritedResources::Base
   end
 
   def crummy_other
-    add_crumb(I18n.t("action.jokes.#{action_name}"), send("#{action_name}_path"))
+    add_crumb(I18n.t("action.jokes.#{action_name}"), send("#{action_name}_url"))
   end
 end
