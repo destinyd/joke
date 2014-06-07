@@ -1,7 +1,4 @@
-# http://stackoverflow.com/questions/14972253/simpleform-default-input-class
-# https://github.com/plataformatec/simple_form/issues/316
-# http://stackoverflow.com/questions/13656819/simple-form-w-bootsrap-check-box
-# https://gist.github.com/tokenvolt/6599141
+#https://github.com/gregbell/active_admin/issues/2703#issuecomment-38140864
 inputs = %w[
   CollectionSelectInput
   DateTimeInput
@@ -15,15 +12,19 @@ inputs = %w[
 ]
 
 inputs.each do |input_type|
-  superclass = "SimpleForm::Inputs::#{input_type}".constantize
-
-  new_class = Class.new(superclass) do
-    def input_html_classes
-      super.push('form-control')
+  superclass = "SimpleForm::Inputs::#{input_type}"
+  hack = %|
+    module SimpleForm
+      module Inputs
+        class #{superclass}
+          def input_html_classes
+            super.push('form-control')
+          end
+        end
+      end
     end
-  end
-
-  Object.const_set(input_type, new_class)
+  |
+  eval(hack)
 end
 
 # Use this setup block to configure all options available in SimpleForm.
