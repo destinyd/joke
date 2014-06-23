@@ -1,5 +1,5 @@
 source 'http://ruby.taobao.org'
-ruby '2.1.1'
+#ruby '2.1.1'
 gem 'rails', '~> 3.2.17'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -35,7 +35,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem 'debugger', github: 'cldwalker/debugger'
+  #gem 'debugger', github: 'cldwalker/debugger'
 end
 group :development, :test do
   gem 'factory_girl_rails'
