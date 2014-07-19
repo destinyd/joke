@@ -13,4 +13,8 @@ SitemapGenerator::Sitemap.create do
   Joke.all.each do |c|
     add joke_path(c), lastmod: c.updated_at, priority:  0.8#, data: ''#, display: ''
   end
+
+  Joke.tags.each do |tag|
+    send(:add, send("tag_path", tag), changefreq: 'always', priority: 0.7)
+  end
 end

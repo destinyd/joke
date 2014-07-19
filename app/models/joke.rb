@@ -101,7 +101,7 @@ class Joke
   end
 
   def self.tags_english_names
-    %w(short long image video funlaile wufunlaile wanfunlaile jionggeshuoshi)
+    %w(short long image video) # funlaile wufunlaile wanfunlaile jionggeshuoshi)
   end
 
   def self.default_tags_hash
