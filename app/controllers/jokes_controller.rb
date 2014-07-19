@@ -1,6 +1,7 @@
 class JokesController < InheritedResources::Base
   before_filter :crummy_all
   before_filter :crummy_other, only: [:long, :short, :image, :video]
+  before_filter :crummy_tag, only: [:tag]
   respond_to :html, :json
   actions :index, :show
 
@@ -32,22 +33,32 @@ class JokesController < InheritedResources::Base
   end
 
   def funlaile
-    @jokes = Joke.funlaile.recent.page(params[:page])
-    respond_with(@jokes)
+    redirect_to tag_url('FUN来了'), status: 301
+    #@jokes = Joke.funlaile.recent.page(params[:page])
+    #respond_with(@jokes)
   end
 
   def wufunlaile
-    @jokes = Joke.wufunlaile.recent.page(params[:page])
-    respond_with(@jokes)
+    redirect_to tag_url('午FUN来了'), status: 301
+    #@jokes = Joke.wufunlaile.recent.page(params[:page])
+    #respond_with(@jokes)
   end
 
   def wanfunlaile
-    @jokes = Joke.wanfunlaile.recent.page(params[:page])
-    respond_with(@jokes)
+    redirect_to tag_url('晚FUN来了'), status: 301
+    #@jokes = Joke.wanfunlaile.recent.page(params[:page])
+    #respond_with(@jokes)
   end
 
   def jionggeshuoshi
-    @jokes = Joke.jionggeshuoshi.recent.page(params[:page])
+    redirect_to tag_url('囧哥说事'), status: 301
+    #@jokes = Joke.jionggeshuoshi.recent.page(params[:page])
+    #respond_with(@jokes)
+  end
+
+  def tag
+    @tag = params[:id]
+    @jokes = Joke.tagged_with_on(:tags, @tag).recent.page(params[:page])
     respond_with(@jokes)
   end
 
@@ -66,5 +77,9 @@ class JokesController < InheritedResources::Base
 
   def crummy_other
     add_crumb(I18n.t("action.jokes.#{action_name}"), send("#{action_name}_url"))
+  end
+
+  def crummy_tag
+    add_crumb(params[:id], tag_url(params[:id]))
   end
 end

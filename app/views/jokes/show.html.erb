@@ -12,6 +12,13 @@
     </h1>
   </div>
   <div class="panel-body">
+    <div class="mb20">
+      <ul class="nav nav-pills nav-justified">
+        <% @joke.show_tags.each do |tag| %>
+          <%= link_to tag.to_s, tag_url(tag), class: 'btn btn-info' %>
+        <% end -%>
+      </ul>
+    </div>
     <% if @joke.is_video? %>
       <p class="text-center">
         <embed src="<%= @joke.to_youku_player_url %>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
@@ -35,6 +42,11 @@
       </div>
       <div class="clearfix"></div>
       <%= render "layouts/bigshare", joke: @joke %>
+      <div class="mb20 mt20">
+        <% @joke.show_tags.each do |tag| %>
+          <%= link_to tag, tag_url(tag), class: 'btn btn-info' %>
+        <% end -%>
+      </div>
     </div>
     <div class="clearfix"></div>
     <div class="text-center">

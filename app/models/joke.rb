@@ -87,6 +87,10 @@ class Joke
     Joke.update_counters _id, forward: 1
   end
 
+  def show_tags
+    tags - Joke.default_tags_hash.keys
+  end
+
   def self.strip(text)
     "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ \r\n]/,'')}"
   end
@@ -98,5 +102,9 @@ class Joke
 
   def self.tags_english_names
     %w(short long image video funlaile wufunlaile wanfunlaile jionggeshuoshi)
+  end
+
+  def self.default_tags_hash
+    {'短篇' => 'short', '长篇' => 'long', '有图' => 'image', '视频' => 'video'}
   end
 end

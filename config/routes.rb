@@ -1,4 +1,5 @@
 Ddjoke::Application.routes.draw do
+  get 'tags/(:id)(/:page)' => 'jokes#tag', as: :tag
   get 'sitemap_pages(_:page)' => 'sitemap_pages#index', as: :sitemap_pages, defaults: {page: 1}
   resources :joke_offers do 
     get :list, on: :collection
