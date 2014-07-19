@@ -23,7 +23,7 @@ class QingsongCrawler
   def get_cotent(url)
     #text = open(url).read.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub(/<ins[^>]+><\/ins>|<script>[^<]+<\/script>/mi,'').gsub(/17qingsong-23/, 'liuzhouyeshi-23').match(regex_wrap)['content']
     page = Nokogiri::HTML(open(url))
-    text = page.css('.news-content').to_html.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub(/<ins[^>]+><\/ins>|<script>[^<]+<\/script>/mi,'').gsub(/17qingsong-23/, 'liuzhouyeshi-23')
+    text = page.css('.news-content').to_html.gsub('http://17qs.qiniudn.com/img/grey.gif','/assets/loading_bar.gif').gsub(/<ins[^>]+><\/ins>|<script>[^<]+<\/script>/mi,'').gsub(/17qingsong-23/, 'liuzhouyeshi-23').gsub(/<a href="http:\/\/www.17qingsong.com\/download.*?<\/a>/, '')
   end
 
   def get_rss
