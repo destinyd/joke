@@ -2,7 +2,7 @@
   set_meta_tags({
     title: @joke.title,
     description: "#{@joke.description}_#{t('site_title')}",
-    keywords: @joke.tags.push(t('site_keywords')).join(',')
+    keywords: (@joke.tags + t('site_keywords').split(',')).uniq
   })
 %>
 <div class="panel panel-default">
