@@ -17,4 +17,8 @@ SitemapGenerator::Sitemap.create do
   Joke.tags.each do |tag|
     send(:add, send("tag_path", tag), changefreq: 'always', priority: 0.7)
   end
+
+  (0..(Joke.count / 1000)).to_a.each do |c|
+    add sitemap_pages_path(page: c + 1), lastmod: 'daily', priority:  0.6#, data: ''#, display: ''
+  end
 end
