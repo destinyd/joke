@@ -33,25 +33,25 @@ class JokesController < InheritedResources::Base
   end
 
   def funlaile
-    redirect_to tag_url('FUN来了'), status: 301
+    redirect_to tag_url('FUN来了', page: params[:page]), status: 301
     #@jokes = Joke.funlaile.recent.page(params[:page])
     #respond_with(@jokes)
   end
 
   def wufunlaile
-    redirect_to tag_url('午FUN来了'), status: 301
+    redirect_to tag_url('午FUN来了', page: params[:page]), status: 301
     #@jokes = Joke.wufunlaile.recent.page(params[:page])
     #respond_with(@jokes)
   end
 
   def wanfunlaile
-    redirect_to tag_url('晚FUN来了'), status: 301
+    redirect_to tag_url('晚FUN来了', page: params[:page]), status: 301
     #@jokes = Joke.wanfunlaile.recent.page(params[:page])
     #respond_with(@jokes)
   end
 
   def jionggeshuoshi
-    redirect_to tag_url('囧哥说事'), status: 301
+    redirect_to tag_url('囧哥说事', page: params[:page]), status: 301
     #@jokes = Joke.jionggeshuoshi.recent.page(params[:page])
     #respond_with(@jokes)
   end
