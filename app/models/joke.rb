@@ -91,6 +91,14 @@ class Joke
     tags - Joke.default_tags_hash.keys
   end
 
+  def serializable_hash(params={})
+    if is_long?
+      super(params).merge({'text' => title})
+    else
+      super(params)
+    end
+  end
+
   def self.strip(text)
     "#{ActionController::Base.helpers.strip_tags(text).gsub(/[ \r\n]/,'')}"
   end
