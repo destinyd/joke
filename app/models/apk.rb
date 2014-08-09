@@ -11,6 +11,6 @@ class Apk
   scope :download, desc(:order).desc(:created_at)
 
   def updated_version
-    Apk.new name: self.name, english_name: self.english_name, version: (self.version.to_f + 0.01).to_s, update_info: self.update_info, order: self.order
+    update_attribute :version, (self.version.to_f + 0.01).to_s
   end
 end
