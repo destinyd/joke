@@ -80,7 +80,7 @@ class Joke
   end
 
   def share_text
-    description + " #笑料百出# "
+    description# + " #笑料百出# "
   end
 
   def visit!
